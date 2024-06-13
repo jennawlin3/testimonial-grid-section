@@ -72,7 +72,6 @@ body {
 .author-comment h3 {
     color: var(--white);
     font-weight: 400;
-    font-size: 1.2rem;
     z-index: 1;
     position: relative;
 }
@@ -86,18 +85,17 @@ body {
 
 .comment-content p:first-of-type {
     color: var(--white);
-    font-size: 1.7rem;
     margin: 20px 0;
     position: relative;
     z-index: 1;
     line-height: 1.2;
+    font-size: 1.3rem;
     font-weight: 600;
 }
 
 .comment-content p:not(:first-of-type) {
     color: var(--light-gray);
     line-height: 1.7;
-    font-size: 1.2rem;
 }
 
 .second {
@@ -113,7 +111,7 @@ body {
 }
 
 .third .author-info p, .fifth .author-info p {
-    color: var(--very-dark-blackish-blue-two);
+    color: #19212ea6;
 }
 
 .third .comment-content p:first-of-type, .fifth .comment-content p:first-of-type {
@@ -121,7 +119,7 @@ body {
 }
 
 .third .comment-content p:not(:first-of-type), .fifth .comment-content p:not(:first-of-type) {
-    color: var(--very-dark-blackish-blue-two);
+    color: #19212ea6;
 }
 
 .fourth {
@@ -132,60 +130,122 @@ body {
     border: 2px solid var(--moderate-violet);
 }
 
-@media screen and (min-width:1000px) {
-    .container { 
+@media screen and (min-width:768px) {
+    .container {
+        margin: 50px 0; 
         width: 90vw;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: minmax(100, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-areas: 
-        "first first second fifth"
-        "third fourth fourth fifth";
-        gap: 30px;
-        margin: 50px 0;
+        "fifth fifth"
+        "first second"
+        "fourth third";
+        gap: 10px;
+    }
+
+    .comment {
+        margin: 10px;
     }
 
     .first {
         grid-area: first;
-        height: 100%;
+        width: 50vw;   
     }
-    
+
     .first::after {
-        right: 60px;
+        right: 50px;
+        top: 20px;
     }
 
     .second {
         grid-area: second;
-        height: 100%;
+        width: 35vw;
     }
 
     .third {
         grid-area: third;
+        width: 35vw;
     }
 
     .fourth {
         grid-area: fourth;
+        width: 50vw;       
     }
 
     .fifth {
         grid-area: fifth;
+        width: 88vw;   
     }
-    
-    .author-comment h3 {
-        font-size: 1.2rem;
+}
+
+@media screen and (min-width:1050px) {
+    .container { 
+        grid-template-columns: minmax(200px, auto);
+        justify-content: center;
+        grid-template-areas: 
+        "first first second fifth"
+        "third fourth fourth fifth";
+        gap: 1.8rem;
+        margin: 50px 0;
     }
 
-    .author-info p {
-        font-size: 1.2rem;
+    .comment {
+        display: grid;
+        margin: 0;
+        padding: 30px;
+    }
+
+    .first::after {
+        right: 50px;
+        top: 20px;
+    }
+    
+    .first {
+        width: auto;
+    }
+
+    .second {
+        width: 228px;
+    }
+
+    .third {
+        width: 225px;
+    }
+
+    .fourth {
+        width: auto;
+    }
+
+    .fifth {
+        width: 228px;   
     }
 
     .comment-content p:first-of-type {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        width: 1300px;
+    }    
+    .first {
+        width: auto;
     }
 
-    .comment-content p:not(:first-of-type) {
-        color: var(--light-gray);
-        line-height: 1.7;
-        font-size: 1.3rem;
+    .second {
+        width: 288px;
+    }
+
+    .third {
+        width: 285px;
+    }
+
+    .fourth {
+        width: initial;
+    }
+
+    .fifth {
+        width: 288px;   
     }
 }
