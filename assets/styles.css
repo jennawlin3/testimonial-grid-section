@@ -20,6 +20,8 @@ body {
     align-items: center;
     background-color: var(--light-grayish-blue);
     min-height: 100vh;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-style: normal;
 }
 
 .container {
@@ -64,17 +66,22 @@ body {
     width: 50px;
     height: 50px;
     border: 2px solid white;
+    z-index: 1;
 }
 
 .author-comment h3 {
     color: var(--white);
     font-weight: 400;
     font-size: 1.2rem;
+    z-index: 1;
+    position: relative;
 }
 
 .author-info p {
     color: var(--light-gray);
     margin-top: 5px;
+    z-index: 1;
+    position: relative;
 }
 
 .comment-content p:first-of-type {
@@ -125,28 +132,31 @@ body {
     border: 2px solid var(--moderate-violet);
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:1000px) {
     .container { 
         width: 90vw;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, auto);
+        grid-template-rows: minmax(100, 1fr);
         grid-template-areas: 
         "first first second fifth"
         "third fourth fourth fifth";
         gap: 30px;
-    }
-
-    .comment {
-        height: 100%;
+        margin: 50px 0;
     }
 
     .first {
         grid-area: first;
+        height: 100%;
+    }
+    
+    .first::after {
+        right: 60px;
     }
 
     .second {
         grid-area: second;
+        height: 100%;
     }
 
     .third {
@@ -160,10 +170,22 @@ body {
     .fifth {
         grid-area: fifth;
     }
-}
-/*
-@media screen and (min-width: 1200px) {
-    .container {
-        width: 1150px;
+    
+    .author-comment h3 {
+        font-size: 1.2rem;
     }
-}*/
+
+    .author-info p {
+        font-size: 1.2rem;
+    }
+
+    .comment-content p:first-of-type {
+        font-size: 2rem;
+    }
+
+    .comment-content p:not(:first-of-type) {
+        color: var(--light-gray);
+        line-height: 1.7;
+        font-size: 1.3rem;
+    }
+}
